@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FILLWORDS
 {
-    public class Player //Ну он же Player блять((((
+    public class Player
     {
         public readonly string Name;
         public int Level { get; private set; }

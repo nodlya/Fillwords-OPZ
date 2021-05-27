@@ -24,7 +24,7 @@ namespace FILLWORDS
 
         private static string PickRandomPattern()
         {
-            string path = @"..\\..\\..\\patterns\\" + Game.Rank;
+            string path = Program.PatternFolderPath + Game.Rank;
             var random = new Random();
             string[] files = Directory.GetFiles(path);
             string temp = files[random.Next(0,files.Length)];
@@ -32,9 +32,7 @@ namespace FILLWORDS
         }
         public static string[] ParsePattern(string fileName)
         {
-            string path = @"..\\..\\..\\patterns\\"
-                          + Game.Rank+ @"\\" + fileName;
-
+            string path = Program.PatternFolderPath + Game.Rank+ @"\\" + fileName;
             string[] file = File.ReadAllLines(path);
             return file;
         }
@@ -64,11 +62,9 @@ namespace FILLWORDS
 
         private static string GetRandomWord(int length)
         {
-            var random = new Random(); //Уносим в поле Program, мужики
-            string[] stringsFile = File.ReadAllLines(Program.path);
             string temp;
             do
-                temp = stringsFile[random.Next(stringsFile.Length) - 1];
+                temp = Program.StringsFile[Program.random.Next(Program.StringsFile.Length) - 1];
             while (temp.Length != length || Used(temp));
             return temp;
         }
@@ -96,11 +92,7 @@ namespace FILLWORDS
 
         private static string RandomReverse(string word)
         {
-            var a = new Random(); //Уносим в поле Program мужика
-            /*bool randomBool = a.Next(0, 2) > 0;
-            if (randomBool) return word;
-            else return Reversed(word);*/
-            return (a.Next(0, 2) > 0) ? word : Reversed(word);
+            return (Program.random.Next(0, 2) > 0) ? word : Reversed(word);
         }
 
         private static string Reversed(string word)

@@ -19,7 +19,7 @@ namespace FILLWORDS
             ThisPlayer = player;
             PlayersWord = string.Empty;
             Rank = player.SetRank();
-            FieldGeneration LevelSettings = new FieldGeneration(Rank); //Не используется?
+            FieldGeneration LevelSettings = new FieldGeneration(Rank);
             WordsLeft = FieldGeneration.Words.Count;
         }
 
@@ -36,7 +36,6 @@ namespace FILLWORDS
                 if (a == word)
                 {
                     b = 2;
-                    ThisPlayer.AddPoints(word.Length);
                     if (FitsPattern(word))
                     {
                         b = 3;
@@ -58,8 +57,7 @@ namespace FILLWORDS
       
         private static bool DictionaryContainsWord(string word)
         {
-            string[] stringsDictionary = File.ReadAllLines(Program.path);
-            bool b = stringsDictionary.Any(t => t == word);
+            bool b = Program.StringsFile.Any(t => t == word);
             return b;
         }
     }

@@ -6,21 +6,20 @@ using System.Linq;
 
 namespace FILLWORDS 
 {
-    public static class Leaderbord //Если все методы содержат цсв то их логично засунуть в статик класс CSV
+    public static class Leaderbord 
     {
-        public static readonly string csvPath = @"..\\..\\..\\Leaderboard.csv";
         private static readonly char delimeter = ',';
         public static void AddPlayerCsv(string name)
         {
-            List<string> templates = new List<string> (File.ReadAllLines(csvPath));
+            List<string> templates = new List<string> (File.ReadAllLines(Program.CsvPath));
             string createText = name + delimeter + "0";
             templates.Add(createText);
-            File.WriteAllLines(csvPath, templates, Encoding.UTF8);
+            File.WriteAllLines(Program.CsvPath, templates, Encoding.UTF8);
         }
 
         public static void UpdateCsv(Player player)
         {
-            string[] templates = File.ReadAllLines(csvPath);
+            string[] templates = File.ReadAllLines(Program.CsvPath);
 
             for (int i = 0; i < templates.Length; i++)
                 if (templates[i].Contains(player.Name))
@@ -28,9 +27,9 @@ namespace FILLWORDS
                                  + player.Points;
 
 
-            templates = SortCsv(templates);
+            //templates = SortCsv(templates);
 
-            File.WriteAllLines(csvPath, templates);
+            File.WriteAllLines(Program.CsvPath, templates);
         }
 
         private static string[] SortCsv(string[] templates)
@@ -38,7 +37,7 @@ namespace FILLWORDS
             if (templates != null)
             {
                 var temp = from u in templates
-                           orderby u.Substring(u.IndexOf(',')) descending
+                           orderby u.Substring(u.IndexOf(',')) ascending
                            select u;
                 return temp.ToArray();
             }
@@ -47,7 +46,8 @@ namespace FILLWORDS
 
         public static void WriteCsv()
         {
-            string[] templates = File.ReadAllLines(csvPath);
+            string[] templates = SortCsv(File.ReadAllLines(Program.CsvPath));
+
             foreach (string a in templates)
             {
                 Console.WriteLine(a);
