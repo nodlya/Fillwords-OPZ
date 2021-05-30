@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,16 +21,13 @@ namespace FILLWORDS
     /// </summary>
     public partial class GameScreen : Window
     {
-        public static Cell[,] ArrayOfCells = new Cell[ThingsNeededToStart.Player.Rank, 
-                                    ThingsNeededToStart.Player.Rank];
+        public static Cell[,] ArrayOfCells;
         private static List<Cell> SelectedCells = new List<Cell>();
         public GameScreen()
         {
             InitializeComponent();
             Field.ShowGridLines = false;
-            SetField(Field, ThingsNeededToStart.Player.Rank);
-            SetCells(ThingsNeededToStart.Player.Rank);
-            SetLetters();
+            NewField();
             ChangeText();
         }
 
@@ -137,19 +135,30 @@ namespace FILLWORDS
 
         private void Selected(object sender, MouseButtonEventArgs e)
         {
-            MouseInfo.Pressed = false;
-            int status = Game.CheckStatus();
-            GuessAction(status);
-            SelectedCells.Clear();
+            Clean();
             ChangeText();
+            if (GameWon())
+            {
+                GetFeedback(5);
+                NewField();
+            }
         }
 
-        private void GuessAction(int status)
+        private void Clean(bool b=true)
+        {
+            MouseInfo.Pressed = false;
+            int status = Game.CheckStatus();
+            if (b) GetFeedback(status);
+            else GetFeedback(0);
+            SelectedCells.Clear();
+        }
+
+        private void GetFeedback(int status)
         {
             switch(status)
             {
                 case 0: 
-                    MessageBox.Show("Таких слов нет и как-то не будет");
+                    //MessageBox.Show("Таких слов нет и как-то не будет");
                     ChangeStatuses(status);
                     break;
                 case 1:
@@ -161,9 +170,11 @@ namespace FILLWORDS
                     ChangeStatuses(0);
                     break;
                 case 3:
-                    MessageBox.Show("Вы угадали!!!");
+                    //MessageBox.Show("Вы угадали!!!");
                     ChangeStatuses(2);
                     break;
+                case 4: ChangeStatuses(0); break;
+                case 5: MessageBox.Show("Уровень пройден"); break;
                 default: break;
             }
         }
@@ -181,6 +192,7 @@ namespace FILLWORDS
                 MessageBox.Show("Вы не можете выбрать уже выбранную букву");
             if (cell.Status == CellStatus.Guessed)
                 MessageBox.Show("Эта буква принадлежит угаданному слову");
+            Clean();
         }
 
         private void ChangeText()
@@ -189,6 +201,28 @@ namespace FILLWORDS
                         + ", а количество очков - " 
                         + Convert.ToString(ThingsNeededToStart.Player.Points);
             GameInfo.Text = text;
+        }
+
+        private bool GameWon()
+        {
+            bool b = true;//ArrayOfCells.All(t => t.Status == CellStatus.Guessed);
+            foreach (Cell a in ArrayOfCells)
+                if (a.Status != CellStatus.Guessed) 
+                    b = false;
+            return b;
+        }
+
+        private void NewField()
+        {
+            Game.Win();
+            ArrayOfCells = new Cell[ThingsNeededToStart.Player.Rank,
+                                    ThingsNeededToStart.Player.Rank];
+            Field.Children.Clear();
+            Field.RowDefinitions.Clear();
+            Field.ColumnDefinitions.Clear();
+            SetField(Field, ThingsNeededToStart.Player.Rank);
+            SetCells(ThingsNeededToStart.Player.Rank);
+            SetLetters();
         }
     }
 

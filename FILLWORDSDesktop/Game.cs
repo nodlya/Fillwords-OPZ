@@ -14,13 +14,15 @@ namespace FILLWORDS
         public static int Rank { get; private set; }
         public static string PlayersWordPattern { get; set; }
 
+        public static FieldGeneration LevelSettings { get; private set; }
+
         public Game(Player player)
         {
             ThisPlayer = player;
             PlayersWord = string.Empty;
             PlayersWordPattern = string.Empty;
             Rank = player.SetRank();
-            FieldGeneration LevelSettings = new FieldGeneration(Rank);
+            LevelSettings = new FieldGeneration(Rank);
             WordsLeft = FieldGeneration.Words.Count;
         }
 
@@ -62,6 +64,12 @@ namespace FILLWORDS
         {
             bool b = ThingsNeededToStart.StringsFile.Any(t => t == word);
             return b;
+        }
+
+        public static void Win()
+        {
+            ThisPlayer.LevelUp();
+            LevelSettings = new FieldGeneration(ThisPlayer.Rank);
         }
     }
 }

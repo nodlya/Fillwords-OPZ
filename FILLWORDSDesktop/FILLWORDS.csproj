@@ -56,9 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Game.cs" />
-    <Compile Include="GameScreen1.xaml.cs">
-      <DependentUpon>GameScreen1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Leaderboard.cs" />
     <Compile Include="MouseInfo.cs" />
     <Compile Include="Player.cs" />
@@ -70,10 +67,6 @@
     </Compile>
     <Compile Include="ThingsNeededToStart.cs" />
     <Page Include="GameScreen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GameScreen1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

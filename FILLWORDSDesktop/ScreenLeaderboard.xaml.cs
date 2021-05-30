@@ -20,7 +20,7 @@ namespace FILLWORDS
     /// </summary>
     public partial class ScreenLeaderboard : Window
     {
-        private string[] mas = File.ReadAllLines(ThingsNeededToStart.CsvPath);
+        private string[] mas = Leaderbord.SortCsv(File.ReadAllLines(ThingsNeededToStart.CsvPath));
         public ScreenLeaderboard()
         {
             InitializeComponent();
