@@ -1,0 +1,26 @@
+﻿<Window x:Class="FILLWORDS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FILLWORDS"
+        mc:Ignorable="d"
+        Title="FILLWORDS" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Canvas Background="#FFF6E9BA">
+        <TextBlock FontFamily="Javanese Text" FontSize="50" Margin="250 50">FILLWORDS</TextBlock>
+        <ListBox x:Name="menu" Margin="310 150" FontSize="25" Background="#FFF6E9BA" BorderThickness="0">
+            <ListBoxItem Margin="10" HorizontalAlignment="Center">
+                <TextBlock MouseDown="OpenGame">Новая игра</TextBlock>
+            </ListBoxItem>
+            <ListBoxItem Margin="10" HorizontalAlignment="Center">
+                <TextBlock MouseDown="Plug">Продолжить</TextBlock>
+            </ListBoxItem>
+            <ListBoxItem Margin="10" HorizontalAlignment="Center">
+                <TextBlock MouseDown="ShowLeaderboard">Рейтинг</TextBlock>
+            </ListBoxItem>
+            <ListBoxItem Margin="10" HorizontalAlignment="Center">
+                <TextBlock MouseDown="Exit">Выход</TextBlock>
+            </ListBoxItem>
+        </ListBox>
+    </Canvas>
+</Window>
