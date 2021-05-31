@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OPZ\OPZ.csproj">
+    <ProjectReference Include="..\OPZ\RPN.csproj">
       <Project>{200d3717-1d7e-4b58-bd3c-b89a771ca959}</Project>
-      <Name>OPZ</Name>
+      <Name>RPN</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -2,19 +2,41 @@
 using System.Linq;
 using System.Text;
 
-namespace OPZ
+namespace RPN
 {
     public class Converter
     {
-        readonly char[] Symbols = new char[] { '+', '-', '*', '/', '^', '(', ')'};
+        private readonly static char[] Tokens = new char[] 
+        { '+', '-', '*', '/', '^', '(', ')'};
+        public string ResultStringRPN { get; }
+        public char[] ResultRPN { get; }
 
-        public Queue<char> ToReversePolish(char[] variables)
+        private Calculator calculator;
+    
+        public double Result { get; }
+
+        public Converter (string str)
+        {
+            ResultStringRPN = ToString(ReversePolish(OptimiseString(str)));
+            ResultRPN = ResultStringRPN.ToArray();
+            calculator = new Calculator(ResultRPN);
+            Result = calculator.Result;
+        }
+
+        private char[] OptimiseString(string str)
+        {
+            return str
+                   .ToCharArray()
+                   .Where(x => x != ' ')
+                   .ToArray();
+        }
+        private Queue<char> ReversePolish(char[] variables)
         {
             var stack = new Stack<char>();
             var queue = new Queue<char>();
             foreach (var ch in variables)
             {
-                if(!Symbols.Contains(ch))
+                if(!Tokens.Contains(ch))
                 {
                     queue.Enqueue(ch);
                 }
@@ -52,22 +74,21 @@ namespace OPZ
         private int GetPriority(char symbol)
         {
             if (symbol == '^')
-                return 4;
-            else if (symbol == '*' || symbol == '/')
                 return 3;
-            else if (symbol == '+' || symbol == '-')
+            else if (symbol == '*' || symbol == '/')
                 return 2;
-            return 1;
+            else if (symbol == '+' || symbol == '-')
+                return 1;
+            return 0;
         }
 
-        public string ToString(Queue<char> str)
+        private string ToString(Queue<char> str)
         {
             var sb = new StringBuilder();
             foreach (var item in str)
-            {
                 sb.Append(item + " ");
-            }
             return sb.ToString();
         }
+
     }
 }
