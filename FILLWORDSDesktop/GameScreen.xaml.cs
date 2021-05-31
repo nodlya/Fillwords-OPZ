@@ -27,7 +27,7 @@ namespace FILLWORDS
         {
             InitializeComponent();
             Field.ShowGridLines = false;
-            NewField();
+            NewField(false);
             ChangeText();
         }
 
@@ -89,7 +89,10 @@ namespace FILLWORDS
 
         private void Exit(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Environment.Exit(0);
+            MainWindow menu = new MainWindow();
+            Hide();
+            menu.Owner = this;
+            menu.Show();
         }
 
         private static Cell FindCellByCoords(Point coord)
@@ -197,7 +200,7 @@ namespace FILLWORDS
 
         private void ChangeText()
         {
-            string text = "Ваш уровень " +Convert.ToString(ThingsNeededToStart.Player.Level)
+            string text = "Ваш уровень " + Convert.ToString(ThingsNeededToStart.Player.Level)
                         + ", а количество очков - " 
                         + Convert.ToString(ThingsNeededToStart.Player.Points);
             GameInfo.Text = text;
@@ -212,9 +215,9 @@ namespace FILLWORDS
             return b;
         }
 
-        private void NewField()
+        private void NewField(bool b = true)
         {
-            Game.Win();
+            if (b) Game.Win();
             ArrayOfCells = new Cell[ThingsNeededToStart.Player.Rank,
                                     ThingsNeededToStart.Player.Rank];
             Field.Children.Clear();

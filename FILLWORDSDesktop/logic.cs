@@ -14,17 +14,20 @@ namespace FILLWORDS
         public static List<string> Words { get; set; }
 
         public static List<Word> Words1 = new List<Word>();
+        private static int rank;
 
-        public FieldGeneration(int rank)
+        public FieldGeneration(int Rank)
         {
-            Field = new char[rank, rank];
+            rank = Rank;
+            Field = new char[Rank, Rank];
             Words = new List<string>();
             FillWordList();
         }
 
         private static string PickRandomPattern()
         {
-            string path = ThingsNeededToStart.PatternFolderPath + 4;
+            string path = ThingsNeededToStart.PatternFolderPath 
+                        + Convert.ToString(rank);
             var random = new Random();
             string[] files = Directory.GetFiles(path);
             string temp = files[random.Next(0, files.Length)];
@@ -32,7 +35,7 @@ namespace FILLWORDS
         }
         public static string[] ParsePattern(string fileName)
         {
-            string path = ThingsNeededToStart.PatternFolderPath + 4 + @"\\" + fileName;
+            string path = ThingsNeededToStart.PatternFolderPath + Convert.ToString(rank) + @"\\" + fileName;
             string[] file = File.ReadAllLines(path);
             return file;
         }

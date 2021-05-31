@@ -46,7 +46,7 @@ namespace FILLWORDS
                     }
                 }
             }
-
+            Leaderbord.UpdateCsv(ThisPlayer);
             PlayersWord = string.Empty;
             PlayersWordPattern = string.Empty;
             return b;

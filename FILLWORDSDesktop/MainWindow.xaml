@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FILLWORDS"
         mc:Ignorable="d"
+        Closing="Window_Closing" 
         Title="FILLWORDS" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Canvas Background="#FFF6E9BA">
         <TextBlock FontFamily="Javanese Text" FontSize="50" Margin="250 50">FILLWORDS</TextBlock>
@@ -13,7 +14,7 @@
                 <TextBlock MouseDown="OpenGame">Новая игра</TextBlock>
             </ListBoxItem>
             <ListBoxItem Margin="10" HorizontalAlignment="Center">
-                <TextBlock MouseDown="Plug">Продолжить</TextBlock>
+                <TextBlock MouseDown="OpenPreviousGame">Продолжить</TextBlock>
             </ListBoxItem>
             <ListBoxItem Margin="10" HorizontalAlignment="Center">
                 <TextBlock MouseDown="ShowLeaderboard">Рейтинг</TextBlock>

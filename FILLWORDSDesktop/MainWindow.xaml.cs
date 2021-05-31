@@ -25,28 +25,39 @@ namespace FILLWORDS
             InitializeComponent();
         }
 
-        private void Exit(object sender, MouseButtonEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void OpenGame(object sender, MouseButtonEventArgs e)
         {
             ScreenGetName start = new ScreenGetName();
             start.Show();
         }
 
-        private void Plug(object sender, MouseButtonEventArgs e)
+        private void OpenPreviousGame(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Пока нетути");
+            if (ThingsNeededToStart.Player != null)
+            {
+                GameScreen Game = new GameScreen();
+                Hide();
+                Game.Owner = this;
+                Game.Show();
+            }
+            else
+                MessageBox.Show("Начните игру, прежде чем открывать старую");
         }
         private void ShowLeaderboard(object sender, MouseButtonEventArgs e)
         {
             ScreenLeaderboard leaderboard = new ScreenLeaderboard();
-            Hide();
             leaderboard.Owner = this;
             leaderboard.Show();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void Exit(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

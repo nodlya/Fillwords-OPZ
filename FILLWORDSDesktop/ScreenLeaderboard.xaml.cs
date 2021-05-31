@@ -20,15 +20,17 @@ namespace FILLWORDS
     /// </summary>
     public partial class ScreenLeaderboard : Window
     {
-        private string[] mas = Leaderbord.SortCsv(File.ReadAllLines(ThingsNeededToStart.CsvPath));
+        private string[] mas;
         public ScreenLeaderboard()
         {
             InitializeComponent();
+            mas = Leaderbord.SortCsv(File.ReadAllLines(ThingsNeededToStart.CsvPath));
             DrawLeaderboard();
         }
 
         private void DrawLeaderboard()
         {
+            mas = Leaderbord.SortCsv(mas);
             for(int i=0;i<mas.Length;i++)
             {
                 PlayersList.Items.Add(mas[i]);

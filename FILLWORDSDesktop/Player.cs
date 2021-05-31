@@ -18,7 +18,6 @@ namespace FILLWORDS
             Name = name;
             Level = 1;
             Points = 0;
-            Rank = 4;
             SetRank();
         }
 

@@ -18,7 +18,7 @@
             </Grid.ColumnDefinitions>
             <Grid x:Name="Field" Grid.Row="0" Grid.Column="0" ShowGridLines="True" Height="300" Width="300" 
               />
-            <TextBlock x:Name="GameInfo" Grid.Row="0" Grid.Column="1" FontSize="20" Text="Слово: "/>
+            <TextBlock x:Name="GameInfo" Grid.Row="0" Grid.Column="1" FontSize="20"/>
 
         </Grid>
             

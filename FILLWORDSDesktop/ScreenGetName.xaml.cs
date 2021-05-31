@@ -34,14 +34,16 @@ namespace FILLWORDS
         {
             if (name.Contains(','))
                 Feedback("Имя не должно содержать знак запятой");
+            if (name == null || name == string.Empty)
+                Feedback("Имя не может быть пустым");
             else
             {
                 Feedback("Здравствуйте, " + name);
                 ThingsNeededToStart.Player = new Player(name);
                 ThingsNeededToStart.Game = new Game(ThingsNeededToStart.Player);
-
+                Leaderbord.AddPlayerCsv(ThingsNeededToStart.Player.Name);
                 GameScreen Game = new GameScreen();
-                
+
                 Hide();
                 Game.Owner = this;
                 Game.Show();

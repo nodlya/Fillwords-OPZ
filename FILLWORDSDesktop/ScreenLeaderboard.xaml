@@ -5,16 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FILLWORDS"
         mc:Ignorable="d"
-        Closing="Window_Closing" 
+         
          Title="FILLWORDS" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Canvas Background="#FFF6E9BA">
         <ListBox x:Name="PlayersList" Height="300" Width="300" 
                  Canvas.Left="258" Canvas.Top="60" 
-                 Background="#FFF6E9BA" BorderThickness="0">
-            
+                 Background="#FFF6E9BA" BorderThickness="0"
+                 FontSize="20">
+                  
         </ListBox>
-
-        <Button Content="Меню" Height="30" Width="50" Background="AliceBlue" 
-                Canvas.Left="10" Canvas.Top="10" MouseDown="BackToMenu"/>
     </Canvas>
 </Window>

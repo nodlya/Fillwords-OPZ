@@ -35,7 +35,7 @@ namespace FILLWORDS
             if (templates != null)
             {
                 var temp = from u in templates
-                           orderby u.Substring(u.IndexOf(',')) ascending
+                           orderby u.Substring(u.IndexOf(',')) descending
                            select u;
                 return temp.ToArray();
             }
