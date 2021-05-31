@@ -13,9 +13,9 @@ namespace FILLWORDS
         public static readonly string PatternFolderPath = @"..\\..\\patterns\\";
         public static Random random = new Random();
         public static string[] StringsFile = File.ReadAllLines(DictionaryPath);
-        public static char[,] Field { get; set; }
+        public static char[,] Field { get; private set; }
 
-        public static List<string> Words { get; set; }
+        public static List<string> Words { get; private set; }
 
         public static List<Word> Words1 = new List<Word>();
         private static int rank;
