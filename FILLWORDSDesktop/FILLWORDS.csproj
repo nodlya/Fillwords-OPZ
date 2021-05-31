@@ -55,10 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Game.cs" />
-    <Compile Include="Leaderboard.cs" />
+    <Compile Include="FILLWORDSLogic\FieldGeneration.cs" />
+    <Compile Include="FILLWORDSLogic\Game.cs" />
+    <Compile Include="FILLWORDSLogic\Leaderboard.cs" />
+    <Compile Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSDesktop.AssemblyInfo.cs" />
+    <Compile Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSLogic.AssemblyInfo.cs" />
+    <Compile Include="FILLWORDSLogic\Player.cs" />
     <Compile Include="MouseInfo.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="ScreenGetName.xaml.cs">
       <DependentUpon>ScreenGetName.xaml</DependentUpon>
     </Compile>
@@ -81,7 +85,6 @@
     <Compile Include="GameScreen.xaml.cs">
       <DependentUpon>GameScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="logic.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -113,6 +116,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="FILLWORDSLogic\FILLWORDSLogic.csproj" />
+    <None Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSDesktop.AssemblyInfoInputs.cache" />
+    <None Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSDesktop.assets.cache" />
+    <None Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSDesktop.csprojAssemblyReference.cache" />
+    <None Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSLogic.AssemblyInfoInputs.cache" />
+    <None Include="FILLWORDSLogic\obj\Debug\netcoreapp3.1\FILLWORDSLogic.assets.cache" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSDesktop.csproj.nuget.dgspec.json" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSDesktop.csproj.nuget.g.props" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSDesktop.csproj.nuget.g.targets" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSLogic.csproj.nuget.dgspec.json" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSLogic.csproj.nuget.g.props" />
+    <None Include="FILLWORDSLogic\obj\FILLWORDSLogic.csproj.nuget.g.targets" />
+    <None Include="FILLWORDSLogic\obj\project.assets.json" />
+    <None Include="FILLWORDSLogic\obj\project.nuget.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FILLWORDSLogic\bin\Debug\netcoreapp3.1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

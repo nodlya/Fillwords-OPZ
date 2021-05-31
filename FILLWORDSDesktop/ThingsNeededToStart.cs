@@ -14,11 +14,7 @@ namespace FILLWORDS
 
     public static class ThingsNeededToStart
     {
-        public static readonly string PatternFolderPath = @"..\\..\\patterns\\";
-        public static readonly string DictionaryPath = @"..\\..\\original.txt";
         public static readonly string CsvPath = @"..\\..\\Leaderboard.csv";
-        public static Random random = new Random();
-        public static string[] StringsFile = File.ReadAllLines(DictionaryPath);
         public static Player Player;
         public static Game Game;
 
