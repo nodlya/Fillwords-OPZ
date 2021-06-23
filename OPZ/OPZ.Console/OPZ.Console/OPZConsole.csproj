@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="OPZ.Library">
+      <HintPath>..\..\OPZ.Library\OPZ.Library\bin\Debug\netcoreapp3.1\OPZ.Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
