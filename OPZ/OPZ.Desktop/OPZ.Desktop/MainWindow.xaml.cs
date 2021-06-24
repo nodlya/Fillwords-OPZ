@@ -26,21 +26,11 @@ namespace OPZ.Desktop
             Drawer.MainWindow = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Count(object sender, RoutedEventArgs e)
         {
             GraphHolder.Children.Clear();
             Drawer.rpn = new Library.Calculation(FunctionReader.Text.ToLower());
             Drawer.DrawField();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

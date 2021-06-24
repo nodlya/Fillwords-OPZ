@@ -21,7 +21,7 @@ namespace OPZ.Desktop
 
             double minY = -MainWindow.GraphHolder.ActualHeight / 2 - 1;
             double maxY = MainWindow.GraphHolder.ActualHeight / 2 + 1;
-            List<Library.Point> points = FunctionValues.GetPointsList(rpn, double.Parse(MainWindow.Beginning.Text), double.Parse(MainWindow.Ending.Text), minY, maxY, double.Parse(MainWindow.Step.Text), Offset);
+            List<Library.Point> points = FunctionValues.GetPointsList(rpn, double.Parse(MainWindow.Beginning.Text), double.Parse(MainWindow.Ending.Text), minY, maxY, double.Parse(MainWindow.Step.Text), Offset, Zoom);
             AddLinesOnMainWindow(points);
         }
 

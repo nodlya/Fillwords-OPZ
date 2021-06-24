@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OPZ.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Canvas>
-        <Button Click="Button_Click" FontSize="25" Background="#6666BB" Canvas.Left="658" Canvas.Top="5">Посчитать</Button>
+        <Button Click="Count" FontSize="23" Background="#6666BB" Canvas.Left="677" Canvas.Top="10" Height="35">Посчитать</Button>
         <StackPanel Height="379" Canvas.Top="45" Width="780" Canvas.Left="10">
             <Grid>
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
+
                 <TextBlock FontSize="27" Grid.Column="0" TextAlignment="Center">Введите функцию</TextBlock>
-                <TextBox x:Name="FunctionReader" Grid.Column="1" Width="550"></TextBox>
+                <TextBox x:Name="FunctionReader" Grid.Column="1" Width="550" FontSize="27"></TextBox>
             </Grid>
 
             <Grid Height="40">
@@ -33,7 +33,7 @@
                 <TextBox x:Name="Beginning" Grid.Column="2" Text="2" FontSize="27" TextAlignment="Center"></TextBox>
                 <TextBox x:Name="Ending" Grid.Column="3" Text="3" FontSize="27" TextAlignment="Center"></TextBox>
             </Grid>
-            
+
             <Canvas x:Name="GraphHolder" Height="301"></Canvas>
         </StackPanel>
     </Canvas>
