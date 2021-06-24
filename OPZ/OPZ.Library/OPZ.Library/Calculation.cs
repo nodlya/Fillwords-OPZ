@@ -53,10 +53,6 @@ namespace OPZ.Library
                 {
                     element = string.Empty;
                 }
-                //else
-                //{
-                //    throw new Exception("Выражение некорректно");
-                //}
             }
             if (element.Length != 0)
             {
