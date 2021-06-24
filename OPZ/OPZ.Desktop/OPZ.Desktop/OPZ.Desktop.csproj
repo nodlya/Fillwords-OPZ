@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="OPZ.Library">
+      <HintPath>..\..\OPZ.Library\OPZ.Library\bin\Debug\netcoreapp3.1\OPZ.Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
